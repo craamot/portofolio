@@ -413,6 +413,61 @@ html.lenis, html.lenis body { height: auto; }
   to   { opacity: 1; transform: none; }
 }
 
+/* ===== RESPONSIVE ===== */
+html, body { overflow-x: clip; }   /* cegah geser samping akibat bingkai sketsa */
+img { max-width: 100%; }
+.hero { min-height: calc(100vh - 60px); min-height: calc(100svh - 60px); }
+
+/* Laptop / layar besar */
+@media (min-width: 1280px) {
+  .wrap { max-width: 1200px; }
+  body { font-size: 1rem; }
+  .about-grid { grid-template-columns: 380px 1fr; gap: 6rem; }
+}
+
+/* Tablet */
+@media (max-width: 860px) {
+  section { padding: 3.5rem 0; }
+  .about { padding: 2rem 0 5rem; }
+  .photo { margin: 0 auto; }
+  .tools { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* HP */
+@media (max-width: 600px) {
+  .wrap { padding: 0 1.1rem; }
+  nav { height: 54px; }
+  .logo { font-size: 1.2rem; }
+  nav ul { gap: 1rem; }
+
+  .hero { min-height: calc(100vh - 54px); min-height: calc(100svh - 54px); padding: 2rem 0 4rem; }
+  .hero h1 { font-size: clamp(2.4rem, 15vw, 4rem); }
+  .hero .role { font-size: .85rem; }
+
+  h2.title { font-size: clamp(2rem, 10vw, 2.8rem); }
+  .about .sub { font-size: 1.3rem; }
+  .btns { gap: 1rem; }
+
+  .timeline { padding-left: 1.4rem; }
+  .timeline li::before { left: calc(-1.4rem - 7px); }
+  .timeline h3, .exp h3 { font-size: 1.5rem; }
+
+  .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem .75rem; }
+  .strip { gap: 1rem; }
+  .cards { gap: 2.25rem; }
+
+  .cols { grid-template-columns: 1fr; gap: 2rem; }
+  .copyright { flex-direction: column; align-items: flex-start; }
+
+  .curve, .curve svg { height: 40px; }
+
+  /* Intro */
+  .tp-slab { font-size: clamp(2rem, 10.5vw, 4rem); }
+  .tp-role { margin-top: 1.25rem; }
+  .skip { right: .75rem; bottom: .75rem; }
+}
+
 </style>
 </head>
 <body>
@@ -431,7 +486,7 @@ html.lenis, html.lenis body { height: auto; }
     <div class="tp">
       <div class="tp-inner">
         <span class="tp-slab"><span class="tp-name">SIGIT MAULANA</span></span>
-        <p class="tp-role">Front-End Developer &amp; AI Engineer</p>
+        <p class="tp-role">Software Engineer &amp; AI Engineer</p>
       </div>
       <div class="tp-flash"></div>
     </div>
@@ -500,7 +555,7 @@ html.lenis, html.lenis body { height: auto; }
   <!-- HERO -->
   <div class="wrap hero">
     <h1>PORTFOLIO</h1>
-    <p class="role">Front-End Developer &amp; AI Engineer</p>
+    <p class="role">Software Engineer &amp; AI Engineer</p>
     <a class="down" href="#about" aria-label="Turun ke bagian About">↓</a>
   </div>
 
@@ -513,7 +568,9 @@ html.lenis, html.lenis body { height: auto; }
       <div>
         <h2 class="title">About me</h2>
         <p class="sub" style="color:#fff;margin-top:1.5rem">Sigit Maulana</p>
-        <p class="lead" style="margin-top:.75rem">Saya mahasiswa Ilmu Komputer di Universitas Bina Bangsa yang memiliki ketertarikan besar pada bidang AI Engineering.</p>
+        <p class="lead" style="margin-top:.75rem">I’m a Computer Science student at Universitas Bina Bangsa with a strong passion
+           for AI Engineering and Software Engineering. I enjoy turning ideas into well-structured, scalable software,
+            and I’m constantly learning to build intelligent systems that solve real-world problems.</p>
         <div class="btns">
           <a class="btn" href="#projects">VIEW WORK</a>
           <a class="btn quiet" href="#contact">CONTACT ME</a>
@@ -624,7 +681,6 @@ html.lenis, html.lenis body { height: auto; }
       <div class="tabs" role="group" aria-label="Filter sertifikat">
         <button class="tab" data-f="all" aria-pressed="true">All</button>
         <button class="tab" data-f="programming" aria-pressed="false">Programming</button>
-        <button class="tab" data-f="organization" aria-pressed="false">Organization</button>
         <button class="tab" data-f="other" aria-pressed="false">Other</button>
       </div>
       <div class="cards" id="certs">
@@ -632,11 +688,6 @@ html.lenis, html.lenis body { height: auto; }
           <div class="frame sketch">Gambar sertifikat</div>
           <h3>Nama sertifikat pemrograman</h3>
           <p>Satu kalimat tentang apa yang Anda pelajari dari program ini.</p>
-        </article>
-        <article class="card" data-cat="organization">
-          <div class="frame sketch">Gambar sertifikat</div>
-          <h3>Nama sertifikat organisasi</h3>
-          <p>Penyelenggara, tahun, dan peran Anda.</p>
         </article>
         <article class="card" data-cat="other">
           <div class="frame sketch">Gambar sertifikat</div>
@@ -660,7 +711,7 @@ html.lenis, html.lenis body { height: auto; }
             potensi wilayah, UMKM lokal, serta informasi fasilitas umum seperti sekolah dan layanan kesehatan. 
             Proyek ini bertujuan untuk memudahkan masyarakat dalam mengakses informasi desa dan mengetahui persebaran lokasi penting secara digital.</p>
           <div class="tags">Python · HTML · CSS</div>
-          <a class="go" href="#" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="go" href="https://desacikande.netlify.app/" target="_blank" rel="noopener">Live Demo↗</a>
         </article>
         <article class="card">
           <div class="frame sketch"><img src="scan.png" alt="Project 2"></div>
@@ -669,14 +720,14 @@ html.lenis, html.lenis body { height: auto; }
             lesi kulit. Proyek ini meliputi proses pelatihan model (model training) menggunakan dataset gambar, pengujian model, 
             serta integrasi model ke dalam antarmuka web agar pengguna dapat mengunggah gambar dan memperoleh hasil prediksi secara digital.</p>
           <div class="tags">Python · HTML · CSS</div>
-          <a class="go" href="#" target="_blank" rel="noopener">Live Demo ↗</a>
+          <a class="go" href="https://github.com/craamot/Dermascan-AI" target="_blank" rel="noopener">Github ↗</a>
         </article>
         <article class="card">
-          <div class="frame sketch"><img src="project3.jpg" alt="Project 3"></div>
-          <h3>Nama proyek ketiga</h3>
-          <p>belum ada</p>
-          <div class="tags">HTML · CSS</div>
-          <a class="go" href="#" target="_blank" rel="noopener">GitHub ↗</a>
+          <div class="frame sketch"><img src="penginget.png" alt="Project 3"></div>
+          <h3>Pengingat Tekanan Darah</h3>
+          <p>Aplikasi berbasis web untuk mengingatkan pengguna untuk memeriksa tekanan darah secara berkala.</p>
+          <div class="tags">HTML · CSS · JS</div>
+          <a class="go" href="https://penginget.netlify.app/" target="_blank" rel="noopener">Live Demo ↗</a>
         </article>
       </div>
       <p class="more" id="articles"><a href="#">View All Articles ↗</a></p>
@@ -693,7 +744,7 @@ html.lenis, html.lenis body { height: auto; }
       <div class="cols">
         <div>
           <div class="brand">Sigit Maulana</div>
-          <p style="margin-top:.5rem;max-width:16rem">Portofolio pribadi untuk menampilkan karya, proyek, dan perjalanan saya sebagai developer.</p>
+          <p style="margin-top:.5rem;max-width:16rem"></p>
         </div>
         <div>
           <h4>Navigation</h4>
@@ -709,8 +760,8 @@ html.lenis, html.lenis body { height: auto; }
           <h4>Social Media</h4>
           <ul>
             <li><a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.instagram.com/sigit_mlna?psln=MTlicnM2dXZjbXR0dg==" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://github.com/craamot" target="_blank" rel="noopener">GitHub</a></li>
           </ul>
         </div>
         <div>
